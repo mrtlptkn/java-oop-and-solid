@@ -3,6 +3,7 @@ package com.mrtlptkn.javaoopandsolid.controller;
 
 import com.mrtlptkn.javaoopandsolid.banking.bestpractice.Account;
 import com.mrtlptkn.javaoopandsolid.banking.bestpractice.CheckingsAccount;
+import com.mrtlptkn.javaoopandsolid.banking.bestpractice.InvestementAccount;
 import com.mrtlptkn.javaoopandsolid.banking.bestpractice.SavingsAccount;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,14 +30,19 @@ public class AccountController {
 
         // Not: Burada sol tarafta Account yazmamızın sebebi, ben sadece account ait ortak özellikleri kullanarak bir işlem yapacağım demektir.
 
-        Account acc = new SavingsAccount(1000, "USD", 0.05f);
+        SavingsAccount acc = new SavingsAccount(1000, "USD", 0.05f);
         // balance değiştirmek için yukarıdaki 2 method kullanmaız gerekir. Bad practice bu düşünülmedi.
         // acc.getDailyInterestRate(); // günlük faiz oranını alma
+
 
 
         // Başarılı olduk.
         // acc.deposit(-750); // Nagtif değer set edilemez
         // acc.withdraw(50000); // bakiye yetersiz durum.
+
+
+        InvestementAccount i = new InvestementAccount(5000, "USD");
+
 
 
         acc.calculateInterest();
