@@ -49,6 +49,10 @@ public class Accounting {
     }
 
     public double calculateInterest() {
+
+
+        // farklı somut nesneler bir işi farklı şekillerde yapıyorsa yada hesaplıyorsa bu durumda polimophismden söz edebiliriz.
+
         if (this.accountType.equals("SavingsAccount")) {
             double interest = this.balance * this.interestRate * 0.0005; // %0.05 faiz
             this.balance += interest; // faizi hesaba ekle

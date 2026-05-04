@@ -27,13 +27,11 @@ public class AccountController {
 
 
 
+        // Not: Burada sol tarafta Account yazmamızın sebebi, ben sadece account ait ortak özellikleri kullanarak bir işlem yapacağım demektir.
 
         Account acc = new SavingsAccount(1000, "USD", 0.05f);
-
-        // balance nasıl değişir
-        acc.deposit(1000); // para yatırma
-        acc.withdraw(500); // para çekme
         // balance değiştirmek için yukarıdaki 2 method kullanmaız gerekir. Bad practice bu düşünülmedi.
+        // acc.getDailyInterestRate(); // günlük faiz oranını alma
 
 
         // Başarılı olduk.
@@ -59,7 +57,7 @@ public class AccountController {
     }
 
 
-    @PostMapping
+    @PostMapping("abstractionTest")
     public String abstractionTest() {
         // Asbtraction -> Soyutlama. yani bir işin özetinin öncesinde oluşturulması daha sonrasında detayının düşünülmesi olaydı.
 
@@ -81,6 +79,17 @@ public class AccountController {
 
         //  abstract public void calculateInterest(); -> bu method faizi nasıl hesaplayacağımıza dair hiç bir fikrimiz yok. Fiktirimin olmuşması için concrete somut bir sınafa geçmemiz lazım.
         // @Override -> Ben bu işin akışın şuan düşünebiliyorum. O yüzden ovveride ediyorum yani -> kodun içindeki bloğu yazabiliyorum.
+
+        CheckingsAccount checking = new CheckingsAccount(150000, "USD");
+        // günlük faiz oranı yok
+        SavingsAccount saving = new SavingsAccount(1000, "USD", 0.05f);
+        // günlük faiz oranı var
+        saving.getDailyInterestRate();
+
+
+
+
+
 
         return "Abstraction Test";
 

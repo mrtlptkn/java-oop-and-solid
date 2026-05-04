@@ -53,4 +53,37 @@ public class AccountingController {
         return "Vadesiz hesap faizi hesaplandı. Faiz Oranı " + result + " -> Güncel Bakiye " + accounting.getBalance() + " Account Number : " + accounting.getAccountNumber();
     }
 
+    @PostMapping("accountingTest")
+    public  String accountingTest() {
+
+        Accounting savingAccounts = new Accounting();
+        savingAccounts.setAccountNumber("123456789");
+        savingAccounts.setBalance(1000);
+        savingAccounts.setAccountType("SavingsAccount");
+        savingAccounts.setCurrency("USD");
+        // saving Accounts üzerinde günlük faiz uygulanabilir mi ? evet
+        savingAccounts.setInterestRate(0.05f);
+
+        Accounting checkingAccounts = new Accounting();
+        checkingAccounts.setAccountNumber("123456789");
+        checkingAccounts.setBalance(1000);
+        checkingAccounts.setAccountType("CheckingsAccount");
+        checkingAccounts.setCurrency("USD");
+        // checking Accounts üzerinde günlük faiz uygulanabilir mi ? hayır
+        checkingAccounts.setInterestRate(0.05f);
+
+        // InvestmentAccount -> (Yatırım) (risk seviyesi gibi farklı özellikler olabilir)
+
+
+        // Kural: Ortak zorunlu alanları base bir nesne üzerinde tanımlamamız gerekir.
+        // Inheritance -> ortak özelliklerin doğru bir şekilde aktarılması
+
+
+
+
+        return  "";
+    }
+
+
+
 }
