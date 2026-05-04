@@ -93,6 +93,22 @@ public class AccountController {
         saving.getDailyInterestRate();
 
 
+        // Liskov
+        Account a = new CheckingsAccount(1000, "USD");
+        a.calculateInterest(); // ben burada hesap türünün ne olduğunu bilmiyorum ama faiz hesaplama işlemi yapabiliyorum. Çünkü ben sadece Account sınıfının genel özelliklerini kullanarak işlemi
+
+        Account b = new SavingsAccount(150000, "USD",0.05f);
+        b.calculateInterest(); // ben burada hesap türünün ne olduğunu bilmiyorum ama faiz hesaplama
+
+        // eğer kalıtım alan sınıflar birbirleri yerine kullanılsa dahi, account sınıfı üzerinden
+        // erşilen ortak alanların kullanım şeklinde hiç bir değişim olmamalıdır.
+        // Kalıtım alan sınıflar birbirleri yerine kullanılabilimelidir.
+        // Liskov Kalıtım ile alakalı bir konu -> Kalıtım varsa anlamlı bir konu.
+        // Not: InvestmentAccount sınıfı -> Account sınıfına deposit ve withdraw methodlarında uyumsuzluk sağladığında dolayı liskova göre -> ovveride etmek yamalamak yerine (IDebit,ICredit,IInvest) gibi interfaceler açarak bu modellem sorununu aştık.
+
+
+
+
 
 
 
